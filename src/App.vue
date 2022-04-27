@@ -1,11 +1,13 @@
 <template>
   <div class="row">
     <div class="col-md-4 offset-4 mt-5">
+      <!--      options can be array of string or array of objects-->
       <CustomSelect
         :options="options"
         v-model="optionItem"
         text-item="title"
         track-item="id"
+        :clearable="false"
       />
     </div>
   </div>

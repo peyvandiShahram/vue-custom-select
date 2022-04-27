@@ -20,7 +20,7 @@
         fill="currentColor"
         class="bi bi-x-circle"
         @click.stop="deSelectOption"
-        v-show="selected"
+        v-show="selected && clearable"
         viewBox="0 0 16 16"
       >
         <path
@@ -69,9 +69,22 @@ export default defineComponent({
   name: "CustomSelect",
   props: {
     modelValue: String,
-    options: Array,
-    textItem: String,
-    trackItem: String,
+    options: {
+      type: Array,
+      default: [],
+    },
+    textItem: {
+      type: String,
+      default: "title",
+    },
+    trackItem: {
+      type: String,
+      default: "id",
+    },
+    clearable: {
+      type: [Boolean, String],
+      default: true,
+    },
   },
   data() {
     return {
